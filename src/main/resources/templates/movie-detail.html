@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Movie Detail</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="screen">
+    <div class="header">
+        <h1>Rotten Tomatoes</h1>
+        <div>
+            Xin chào <strong th:text="${user.username}"></strong> |
+            <a href="/logout">Đăng xuất</a>
+        </div>
+    </div>
+
+
+    <div class="detail">
+        <img th:src="@{/movie/{filename}(filename=${movie.image_url})}" th:alt="${movie.name}">
+        <p th:text="${movie.name}">Movie Title</p>
+        <p><strong>Description:</strong> <span th:text="${movie.description}">Movie description here</span></p>
+    </div>
+    <div class="review">
+        <div class="all-review">
+            <h2>Reviews</h2>
+            <div th:if="${reviews.isEmpty()}">
+                <p>No reviews yet. Be the first to comment!</p>
+            </div>
+            <div class="rev" th:each="review : ${reviews}">
+                <div class="name">
+                    <div class="avata" th:text="${review.user.username.substring(0, 1)}"></div>
+                    <span class="username" th:text="${review.user.username}">★</span>
+                    <span class="star" th:each="i : ${#numbers.sequence(1, review.rating)}">★</span>
+                </div>
+                <div class="cmt" th:text="${review.comment}">Great movie!</div>
+            </div>
+        </div>
+        <div class="add-review">
+            <form th:action="@{/movies/{id}/reviews(id=${movie.id})}" th:object="${reviewForm}" method="post">
+                <div class="avata" th:text="${user.username.substring(0, 1)}"></div>
+                <select class="form-select" id="rating" th:field="*{rating}">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <input class="form-control" placeholder="Viết đánh giá phim" id="comment" th:field="*{comment}" rows="4" cols="50">
+                <br/>
+                <button class="btn btn-primary" type="submit">Bình luận</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

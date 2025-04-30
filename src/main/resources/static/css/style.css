@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+h1, h2 {
+    color: #345678 !important;
+    font-family: fantasy;
+}
+
+.list-movie {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+    /*padding: 20px;*/
+}
+
+.movie {
+    width: 200px;
+}
+
+.movie img {
+    height: 300px;
+    width: 200px;
+}
+
+.movie p,
+.detail p {
+    font-family: cursive;
+    color: #345689;
+}
+
+.detail p:nth-child(2),
+.movie p:nth-child(1) {
+    font-size: 26px;
+}
+
+.detail p:nth-child(3),
+.movie p:nth-child(2) {
+    font-size: 14px;
+}
+
+.detail img {
+    height: 540px;
+}
+
+.screen {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    padding: 0 120px;
+    justify-content: space-between;
+}
+
+.header {
+    width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail {
+    width: 50%;
+}
+
+.detail img {
+    height: calc(100vh - 160px);
+}
+
+.review {
+    width: 50%;
+}
+
+.all-review {
+    height: calc(100vh - 160px);
+    overflow: auto;
+}
+
+.add-review form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+.add-review form select {
+    width: 60px;
+}
+
+.add-review form input {
+    width: calc(100% - 224px);
+}
+
+.avata {
+    border: solid 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #345678;
+    font-size: 22px;
+    font-weight: 400;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.rev {
+    margin-bottom: 16px;
+}
+
+.rev .avata {
+    margin-right: 10px;
+}
+
+.star {
+    color: red;
+}
+
+.login {
+    padding: 40px 35%;
+    width: 100%;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    color: #123456;
+    font-family: cursive;
+}
+
+.cmt {
+    margin-left: 54px;
+    width: calc(100% - 72px);
+}
