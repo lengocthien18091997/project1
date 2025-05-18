@@ -136,3 +136,15 @@ h1, h2 {
     margin-left: 54px;
     width: calc(100% - 72px);
 }
+
+.hot-label {
+    width: 33px;
+    height: 33px;
+    border: 1px solid #dc3545;
+    align-content: center;
+    border-radius: 50%;
+    text-align: center;
+    color: #dc3545;
+    position: absolute;
+    background: #fff;
+}

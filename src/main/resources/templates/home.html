@@ -18,7 +18,10 @@
     </div>
 
     <div class="list-movie">
-        <div class="movie" th:each="movie : ${movies}">
+        <div class="movie" th:each="movie, stat : ${movies}">
+            <div th:if="${stat.index} < 3" class="hot-label">
+                [[${stat.index + 1}]]
+            </div>
             <img th:src="@{/movie/{filename}(filename=${movie.image_url})}" th:alt="${movie.name}">
             <div>
                 <p th:text="${movie.name}"></p>
